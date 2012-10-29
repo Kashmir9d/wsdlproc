@@ -1,0 +1,8 @@
+java.lang.holders
+org.mule.module.wsdlproc
+org.mule.module.wsdlproc.adapters
+org.mule.module.wsdlproc.agents
+org.mule.module.wsdlproc.config
+org.mule.module.wsdlproc.process
+org.mule.module.wsdlproc.processors
+

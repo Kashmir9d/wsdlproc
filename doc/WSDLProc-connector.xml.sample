@@ -1,0 +1,5 @@
+<!-- BEGIN_INCLUDE(wsdlproc:send-request) -->
+    <wsdlproc:send-request>
+    	<wsdlproc:params ref="#[map-payload:myMap]" />
+    </wsdlproc:send-request>
+<!-- END_INCLUDE(wsdlproc:send-request) -->

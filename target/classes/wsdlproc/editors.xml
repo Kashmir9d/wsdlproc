@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" prefix="wsdlproc" url="http://www.mulesoft.org/schema/mule/wsdlproc">
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/wsdlproc/abstractWsdlprocConnectorGeneric" abstract="true" image="" localId="parentConfig" icon="" description="" caption="Wsdlproc"></global-cloud-connector>
+  <global-cloud-connector extends="http://www.mulesoft.org/schema/mule/wsdlproc/parentConfig" abstract="false" image="icons/large/wsdlproc-connector-48x32.png" localId="config" icon="icons/small/wsdlproc-connector-24x16.png" description="Global Wsdlproc configuration information." caption="Wsdlproc">
+    <attribute-category description="Wsdlproc configuration properties." caption="General">
+      <group caption="Generic" id="wsdlprocGenericProperties">
+        <name required="true" description="Give a name to this configuration so it can be later referenced by config-ref." caption="Name" name="name"></name>
+      </group>
+      <group caption="General" id="general">
+        <string javaType="java.lang.String" required="true" description="The name of the operation to be called on the web service." caption="Operation Name" name="operationName"></string>
+        <string javaType="java.lang.String" required="true" description="The location of the WSDL. Must either be a URL or a file path name." caption="Wsdl Location" name="wsdlLocation"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector abstract="true" image="icons/large/wsdlproc-connector-48x32.png" localId="abstractWsdlprocConnectorGeneric" icon="icons/small/wsdlproc-connector-24x16.png" description="Interact with Wsdlproc." caption="Abstractwsdlprocconnectorgeneric">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="abstractWsdlprocConnectorGeneric">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/wsdlproc/config" required="true" description="Specify which configuration to use for this invocation." caption="Config Reference" name="config-ref"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector extends="http://www.mulesoft.org/schema/mule/wsdlproc/abstractWsdlprocConnectorGeneric" image="icons/large/wsdlproc-connector-48x32.png" localId="wsdlproc-connector" icon="icons/small/wsdlproc-connector-24x16.png" description="WSDL Processing module. This module is configured with a WSDL location and a method
+and then executes that method on the webservice using the incoming message as arguments,
+and then returns the result." caption="Wsdlproc" aliasId="org.mule.tooling.ui.modules.core.pattern.wsdlproc">
+    <attribute-category description="General." caption="General">
+      <group caption="Generic" id="wsdlprocConnectorGeneric">
+        <modeSwitch alwaysCombo="true" description="Operation." caption="Operation" name="Wsdlproc operations to execute">
+          <mode modeLabel="Send request" modeId="http://www.mulesoft.org/schema/mule/wsdlproc/send-request"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.Object" extends="http://www.mulesoft.org/schema/mule/wsdlproc/abstractWsdlprocConnectorGeneric" abstract="true" image="icons/large/wsdlproc-connector-48x32.png" localId="send-request" icon="icons/small/wsdlproc-connector-24x16.png" caption="Send Request">
+    <attribute-category description="General." caption="General">
+      <group caption="General" id="general">
+        <string-map mapName="params" itemName="param" localName="send-request-params" javaType="java.util.Map&lt;java.lang.String,java.lang.Object&gt;" description="The arguments to send with the web service call, must be a parameter map." caption="Params"></string-map>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
